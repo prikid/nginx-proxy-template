@@ -21,7 +21,7 @@ services:
       - nginx-proxy
 
   nginx-proxy-acme:
-    image: nginxproxy/acme-companion:alpine
+    image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
     restart: unless-stopped
     environment:
