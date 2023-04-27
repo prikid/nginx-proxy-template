@@ -12,7 +12,6 @@ services:
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs:ro
-      -
     logging:
       options:
         max-size: "10m"
