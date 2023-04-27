@@ -1,19 +1,39 @@
 services:
   nginx-proxy:
     image: nginxproxy/nginx-proxy:alpine
+    container_name: nginx-proxy
+    restart: unless-stopped
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - ./conf.d:/etc/nginx/conf.d
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs:ro
+      -
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
 
     networks:
-      nginx-proxy:
-        aliases:
-          - nginx-proxy
+      - nginx-proxy
+
+  nginx-proxy-acme:
+    image: nginxproxy/acme-companion:alpine
+    container_name: nginx-proxy-acme
+    restart: unless-stopped
+    environment:
+      - DEFAULT_EMAIL=serhii.riabcheniuk@gmail.com
+    volumes_from:
+      - nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - acme:/etc/acme.sh
+    networks:
+      - nginx-proxy
 
 
         #  nginx:
