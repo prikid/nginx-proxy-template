@@ -1,0 +1,15 @@
+# Redirect all HTTP requests from www to non-www
+server {
+    listen 80;
+    server_name ~^www\.(.*)$;
+
+    return 301 http://$1$request_uri;
+}
+
+# Redirect all HTTPS requests from www to non-www
+server {
+    listen 443 ssl;
+    server_name ~^www\.(.*)$;
+
+    return 301 https://$1$request_uri;
+}
