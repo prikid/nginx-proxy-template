@@ -13,7 +13,6 @@ services:
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
-#      - ./conf.d/www-to-non-www.conf:/etc/nginx/conf.d/www-to-non-www.conf:ro
     logging:
       driver: "json-file"
       options:

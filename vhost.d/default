@@ -1,0 +1,9 @@
+# Handle HTTP requests
+if ($host ~* ^www\.(.*)) {
+    return 301 http://$1$request_uri;
+}
+
+# Handle HTTPS requests
+if ($host ~* ^www\.(.*)) {
+    return 301 https://$1$request_uri;
+}
