@@ -18,4 +18,3 @@ if ($host ~* ^www\.(.*)) {
 if ($host ~* ^www\.(.*)) {
     return 301 https://$1$request_uri;
 }
-
