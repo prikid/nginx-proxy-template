@@ -12,6 +12,7 @@ services:
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs
+      - ./conf.d/gzip.conf:/etc/nginx/conf.d/gzip.conf:ro
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
     logging:
       driver: "json-file"
