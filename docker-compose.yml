@@ -12,6 +12,8 @@ services:
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs
+      - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
+      - ./conf.d/www-to-non-www.conf:/etc/nginx/conf.d/www-to-non-www.conf:ro
     logging:
       driver: "json-file"
       options:
@@ -41,7 +43,7 @@ services:
       - nginx-proxy
 
 
-        #  nginx:
+      #  nginx:
 #    image: nginx:alpine
 #    labels:
 #      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
