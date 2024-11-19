@@ -17,8 +17,7 @@ services:
       - ./conf.d/gzip.conf:/etc/nginx/conf.d/gzip.conf:ro
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
 
-      # adding a volume to serve app's static files
-      - ./static:/usr/share/nginx/static
+      - static_files:/usr/share/nginx/static/
     logging:
       driver: "json-file"
       options:
@@ -94,6 +93,10 @@ services:
 #      NGINX_DOCKER_GEN_CONTAINER: "nginx-gen"
 #      NGINX_PROXY_CONTAINER: "nginx"
 
+volumes:
+  static_files:
+    external:
+      name: static_files
 
 networks:
   nginx-proxy:
