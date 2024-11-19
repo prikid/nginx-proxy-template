@@ -17,7 +17,7 @@ services:
       - ./conf.d/gzip.conf:/etc/nginx/conf.d/gzip.conf:ro
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
 
-      - static_files:/usr/share/nginx/static/
+      - static:/usr/share/nginx/static/
     logging:
       driver: "json-file"
       options:
@@ -94,9 +94,8 @@ services:
 #      NGINX_PROXY_CONTAINER: "nginx"
 
 volumes:
-  static_files:
-    external:
-      name: static_files
+  static:
+    name: "nginx_proxy_static"
 
 networks:
   nginx-proxy:
