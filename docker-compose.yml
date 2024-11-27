@@ -18,6 +18,7 @@ services:
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
 
       - static:/usr/share/nginx/static/
+      - media:/usr/share/nginx/media/
     logging:
       driver: "json-file"
       options:
@@ -96,6 +97,8 @@ services:
 volumes:
   static:
     name: "nginx_proxy_static"
+  media:
+    name: "nginx_proxy_media"
 
 networks:
   nginx-proxy:
