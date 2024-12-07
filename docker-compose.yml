@@ -12,6 +12,7 @@ services:
       - ./vhost.d:/etc/nginx/vhost.d
       - ./html:/usr/share/nginx/html
       - ./certs:/etc/nginx/certs
+      - ./htpasswd:/etc/nginx/htpasswd
 
       # adding extra configs to the main nginx config
       - ./conf.d/gzip.conf:/etc/nginx/conf.d/gzip.conf:ro
