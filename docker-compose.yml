@@ -17,6 +17,7 @@ services:
       # adding extra configs to the main nginx config
       - ./conf.d/gzip.conf:/etc/nginx/conf.d/gzip.conf:ro
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
+      - ./conf.d/proxy-cache.conf:/etc/nginx/conf.d/proxy-cache.conf:ro
 
       - static:/usr/share/nginx/static/
       - media:/usr/share/nginx/media/
