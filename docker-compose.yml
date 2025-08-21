@@ -20,7 +20,7 @@ services:
       - ./conf.d/proxy-cache.conf:/etc/nginx/conf.d/proxy-cache.conf:ro
 
       # Add nginx cache volume
-      - nginx-cache:/var/cache/nginx
+      - nginx-cache:/var/cache/nginx/proxy_cache
 
       - static:/usr/share/nginx/static/
       - media:/usr/share/nginx/media/
