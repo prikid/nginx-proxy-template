@@ -19,6 +19,9 @@ services:
       - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
       - ./conf.d/proxy-cache.conf:/etc/nginx/conf.d/proxy-cache.conf:ro
 
+      # Add nginx cache volume
+      - nginx-cache:/var/cache/nginx
+
       - static:/usr/share/nginx/static/
       - media:/usr/share/nginx/media/
     logging:
@@ -101,6 +104,8 @@ volumes:
     name: "nginx_proxy_static"
   media:
     name: "nginx_proxy_media"
+  nginx-cache:
+    name: "nginx_proxy_cache"
 
 networks:
   nginx-proxy:
