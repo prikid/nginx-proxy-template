@@ -16,8 +16,7 @@ services:
 
       # adding extra configs to the main nginx config
       - ./conf.d/gzip.conf:/etc/nginx/conf.d/gzip.conf:ro
-      - ./conf.d/upload-size.conf:/etc/nginx/conf.d/upload-size.conf:ro
-      - ./conf.d/proxy-cache.conf:/etc/nginx/conf.d/proxy-cache.conf:ro
+      - ./conf.d/custom.conf:/etc/nginx/conf.d/custom.conf:ro
 
       # Add nginx cache volume
       - nginx-cache:/var/cache/nginx/proxy_cache
