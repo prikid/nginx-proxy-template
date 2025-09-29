@@ -38,6 +38,7 @@ services:
     restart: always
     environment:
       - DEFAULT_EMAIL=serhii.riabcheniuk@gmail.com
+      - NGINX_PROXY_CONTAINER=nginx-proxy
     volumes_from:
       - nginx-proxy
     volumes:
